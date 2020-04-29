@@ -1,10 +1,18 @@
 import os
 from flask import Flask, render_template, abort
+import json
+
 app = Flask(__name__)
+
+with open("books.json") as fichero:
+	datos=json.load(fichero)
+
+
+
 
 @app.route('/', methods=["GET", "POST"])
 def inicio():
-	return render_template("index.html")
+	return render_template("index.html", lista=datos)
 
 
 

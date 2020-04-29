@@ -1,8 +1,13 @@
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Libreria</title>
-</head>
-<body>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Libreria</title>
+	</head>
+	<body>
+		<h1>Biblioteca</h1>
+		<p>jonathan marquez jimenez</p>
+		{% for elem in lista -%}
+			<li><a href="/libro/{{ elem['isbn'] }}">{{ elem['title'] }}</a></li>
+		{% endfor -%}
+	</body>
 </html>
