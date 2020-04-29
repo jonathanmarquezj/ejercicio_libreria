@@ -25,7 +25,7 @@ def detalle(isbn):
 def categorias(categoria):
 	for libro in datos:
 		if 'categories' in libro:
-			if categoriad in libro["categories"]:
+			if categoria in libro["categories"]:
 				return render_template("categorias.html", lista=datos, categoria=categoria)
 	abort(404)
 
