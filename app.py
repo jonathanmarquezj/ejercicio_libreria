@@ -14,6 +14,14 @@ with open("books.json") as fichero:
 def inicio():
 	return render_template("index.html", lista=datos)
 
+@app.route('/libro/<isbn>', methods=["GET", "POST"])
+def detalle(isbn):
+	for libro in datos:
+		if 'isbn' in libro:
+			if libro["isbn"] == isbn:
+				return render_template("detalle.html", libro=libro)
+	abort(404)
+
 
 
 
