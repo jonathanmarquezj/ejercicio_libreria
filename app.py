@@ -8,8 +8,6 @@ with open("books.json") as fichero:
 	datos=json.load(fichero)
 
 
-
-
 @app.route('/', methods=["GET", "POST"])
 def inicio():
 	return render_template("index.html", lista=datos)
@@ -32,11 +30,9 @@ def categorias(categoria):
 	abort(404)
 
 
-
-
 # Tienes que crear esta variable si no la tienes, en heroku no hace falta.
 # Ponemos en el terminal para poner el puerto en nustra maquina local el siguiente comando.
 #   $ export PORT=8080
 port=os.environ["PORT"]
 
-app.run('0.0.0.0', int(port), debug=True)
+app.run('0.0.0.0', int(port), debug=False)
