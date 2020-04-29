@@ -23,6 +23,15 @@ def detalle(isbn):
 	abort(404)
 
 
+@app.route('/categorias/<categoria>', methods=["GET", "POST"])
+def categorias(categoria):
+	for libro in datos:
+		if 'categories' in libro:
+			if categoria in libro["categories"]:
+				return render_template("categorias.html", lista=datos, categoria=categoria)
+	abort(404)
+
+
 
 
 # Tienes que crear esta variable si no la tienes, en heroku no hace falta.
