@@ -18,14 +18,14 @@ def detalle(isbn):
 		if 'isbn' in libro:
 			if libro["isbn"] == isbn:
 				return render_template("detalle.html", libro=libro)
-	#abort(404)
+	abort(404)
 
 
 @app.route('/categorias/<categoria>', methods=["GET", "POST"])
 def categorias(categoria):
 	for libro in datos:
 		if 'categories' in libro:
-			if categoria in libro["categories"]:
+			if categoriad in libro["categories"]:
 				return render_template("categorias.html", lista=datos, categoria=categoria)
 	abort(404)
 
@@ -35,4 +35,4 @@ def categorias(categoria):
 #   $ export PORT=8080
 port=os.environ["PORT"]
 
-app.run('0.0.0.0', int(port), debug=True)
+app.run('0.0.0.0', int(port), debug=False)
