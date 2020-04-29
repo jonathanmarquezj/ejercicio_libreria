@@ -14,7 +14,9 @@
 		<p>{{ libro['shortDescription'] }}</p>
 		<p>Autores:</p>
 		{% for autor in libro['authors'] -%}
-			<li>{{autor}}</li>
+			{% if autor != '' %}
+				<li>{{autor}}</li>
+			{% endif -%}
 		{% endfor -%}
 		<p>Categorias:</p>
 		{% for categoria in libro['categories'] -%}
